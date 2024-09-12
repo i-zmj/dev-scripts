@@ -1,26 +1,33 @@
 # dev-scripts
 
 ### 介绍
-开发工具脚本
+
+开发工具
 
 ### 文件结构
 
 - ice_util.py: 被其他ice脚本是用的共通函数
-- ice_find_symbol.py: 在指定目录中，查找关键字
+- ice_find_symbol.py: 通过nm命令，递归查找指定目录下的所有静态文件(lib, a)。查找关键字。并以表格形式输出。
 
-### 安装教程
+### 使用方法
+
+1. 直接运行exe文件，按照指示，输入静态库路径和待查找的关键字。
+2. 按照下面的格式运行。
+    > ice_find_symbol.exe <static_lib_dir> <keywords>
+
+### 安装依赖
 
 安装python依赖
 `python -m pip install -r requirments.txt`
 
 ### 结果解读
 
-#### 简要解读
+#### 常用结果
 
 - U: 调用了该函数。利用function A，调用了function B。则B显示为U
 - T: 函数实现，函数体。如果编译时提示undefined reference。则指的是找不到函数实现。
 
-#### 详细说明
+#### 结果类型详细说明
 
 来源于https://blog.csdn.net/qq_41017902/article/details/107363409
 
