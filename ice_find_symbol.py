@@ -50,7 +50,7 @@ def find_symbol(lib_dir, symbol):
 
 find_symbol(lib_dir, symbol)
 
-print(f"总计搜索[{file_count}]个文件。发现了[{len(result)}]个结果")
+print(f"总计搜索[{file_count}]个文件。发现了[{len(result)}]个结果！")
 
 from prettytable import PrettyTable
 tb = PrettyTable()
@@ -63,3 +63,4 @@ for line in result:
     tb.add_row(line.split(' >> '))
 
 print(f'\n{tb}')
+input('搜索完毕！')
