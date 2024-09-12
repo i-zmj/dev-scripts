@@ -4,8 +4,8 @@
 a = Analysis(
     ['../ice_find_symbol.py'],
     pathex=[],
-    binaries=[],
-    datas=[('../tools', './tools')],
+    binaries=[('../tools/nm.exe', 'tools/')],
+    datas=[],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

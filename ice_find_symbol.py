@@ -22,6 +22,13 @@ import ice_util as util
 result = set()
 file_count = 0
 
+def get_resource_path(relative_path):
+    if getattr(sys, 'frozen', False):
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 import platform, shutil
 
 def find_symbol(lib_dir, symbol):
@@ -37,12 +44,15 @@ def find_symbol(lib_dir, symbol):
                 cmd = ''
                 if platform.system() == "Windows":
                     # 如果是Windows平台，使用内置的nm.exe
-                    cmd = f'.\\tools\\nm.exe -C "{os.path.join(root, file)}" | findstr -i "{symbol}"'
+                    nm_path = get_resource_path('tools\\nm.exe')
+                    cmd = f'{nm_path} -C "{os.path.join(root, file)}" | findstr -i "{symbol}"'
                 else:
                     # 如果是非Windows平台，是用系统的nm命令
                     cmd = f"nm -C {os.path.join(root, file)} | grep {symbol}"
 
                 ret = util.subprocess_run(cmd, red_color_list=['U '], green_color_list=[' T ', ' t '])
+                if 'recognised but unhandled machine type' in ret:
+                    continue
 
                 for line in ret.splitlines():
                     # 利用set，进行去重处理
