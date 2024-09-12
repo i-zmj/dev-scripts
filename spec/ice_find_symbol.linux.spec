@@ -5,7 +5,7 @@ a = Analysis(
     ['../ice_find_symbol.py'],
     pathex=[],
     binaries=[],
-    datas=[('../img/zmj.ico', './img/zmj.ico')],
+    datas=[],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -34,5 +34,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='./img/zmj.ico'
+    icon='../img/zmj.ico'
 )

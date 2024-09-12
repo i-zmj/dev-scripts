@@ -63,4 +63,4 @@ for line in result:
     tb.add_row(line.split(' >> '))
 
 print(f'\n{tb}')
-input('搜索完毕！')
+os.system('pause')
