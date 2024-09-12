@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['ice_find_symbol.py'],
+    ['../ice_find_symbol.py'],
     pathex=[],
     binaries=[],
-    datas=[('./img/zmj.ico', './img/zmj.ico')],
+    datas=[('../img/zmj.ico', './img/zmj.ico')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
